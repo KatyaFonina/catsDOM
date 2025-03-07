@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cats</title>
+    <script src="./cats.js"></script>
+</head>
+
+<body>
+    <script>
+        const heading = document.createElement('h1'); 
+        heading.textContent = 'Наши котики'; 
+        heading.style.textAlign ='center'; 
+        document.body.appendChild(heading); 
+        const container = document.createElement('div');
+        container.style.display = 'flex';
+        container.style.flexFlow = 'row wrap';
+        container.style.justifyContent = 'center';  
+        container.style.padding = '50px';
+        document.body.appendChild(container); 
+        cats.forEach(cat => { 
+            const card = document.createElement('div'); 
+            card.style.width = '400px'; 
+            card.style.border = '3px solid #4682B4';
+            card.style.backgroundColor = '#E6E6FA';
+            const img = document.createElement('img'); 
+            img.src = cat.img_link; 
+            img.alt = cat.name; 
+            img.style.width = '100%';
+            img.style.height = '400px'; 
+            card.appendChild(img); 
+            const content = document.createElement('div'); 
+            content.style.padding = '30px'; 
+            const name = document.createElement('h2');
+            name.textContent = cat.name; 
+            name.style.fontSize = '40px'; 
+            name.style.marginTop = '0'; 
+            name.style.fontFamily = "fantasy"
+            content.appendChild(name);
+            const age = document.createElement('p'); 
+            age.textContent = `Возраст: ${cat.age} лет`; 
+            content.appendChild(age);
+            const rate = document.createElement('p'); 
+            rate.textContent = `Рейтинг: ${cat.rate}/10`; 
+            content.appendChild(rate);
+            const description = document.createElement('p'); 
+            description.textContent = cat.description;
+            description.style.fontSize = '20px'; 
+            content.appendChild(description); 
+            if(cat.favourite == true) {
+                    const favourite = document.createElement('p'); 
+                    favourite.textContent = 'Любимец!';
+                    favourite.style.color = 'darkgoldenrod'; 
+                    favourite.style.fontWeight = 'bold'; 
+                    content.appendChild(favourite);
+            }
+            card.appendChild(content); 
+            container.appendChild(card);
+        }); 
+        
+        document.body.style.fontFamily = 'sans-serif'; 
+        document.body.style.backgroundColor = '#E0FFFF';
+        document.body.style.margin = '0'; 
+        document.body.style.padding = '0'; 
+        </script>
+</body>
+
+</html>
